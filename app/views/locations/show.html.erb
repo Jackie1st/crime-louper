@@ -1,0 +1,31 @@
+<div class='page-header'>
+  <h1><%= @location.try(:title) %></h1>
+</div>
+
+<div class='row'>
+  <div class='col-lg-6'>
+    <h4>Address</h4>
+    <p><%= @location.try(:address) %></p>
+  </div>
+
+  <h4>City</h4>
+  <p><%= @location.try(:city) %></p>
+
+  <h4>State</h4>
+  <p><%= @location.try(:state) %></p>
+
+  <div class='col-lg-6'>
+    <% @crimes.each do |crime| %>
+      <p> Area: <%= crime.area %> | Location: <%= crime.location %> | Crime: <%= crime.crime %></p>
+      <p> Description: <%= crime.description %> | Weapon: <%= crime.weapon %> | Time: <%= crime.time %></p>
+      <p> Weapon Info: <%= @info.query(crime.weapon) %> </p>
+      <br>
+      <p>---------------------------------------------------------------------------------</p>
+      <br>
+    <% end %>
+  </div>
+</div>
+<div class='well'>
+  <%= link_to 'Edit', edit_location_path(@location), class: 'btn btn-primary' %> |
+  <%= link_to 'Back', locations_path %>
+</div>
