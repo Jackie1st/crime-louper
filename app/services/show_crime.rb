@@ -11,7 +11,7 @@ class ShowCrime
 
   def query
     client = SODA::Client.new({:domain => "data.lacity.org", :app_token => "YgKOkZQhjnWR2hTq2x67M2UPi"})
-    @results = client.get("/resource/7fvc-faax.json", :$limit => 10)
+    @results = client.get("7fvc-faax", :$limit => 10)
     parse_results(results)
   end
 
